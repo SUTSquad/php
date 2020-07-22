@@ -17,8 +17,8 @@
 
 </form>
 <?php
-$username=$_POST['username'];
-$password=$_POST['password'];
+$username=htmlentities($_POST['username'],ENT_QUOTES);
+$password=htmlentities($_POST['password'],ENT_QUOTES);
 $mysqlservername='39.101.167.180';
 $mysqlpassword="wu7615007.";
 $mysqlusername="root";
