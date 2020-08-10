@@ -15,12 +15,12 @@ $dbname = "php";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sth1=$conn->prepare("SELECT* FROM php where user_name= ?");
+    $sth1=$conn->prepare("SELECT * FROM php where user_name= ?");
     $sth1->bindValue(1,$username,PDO::PARAM_STR);
     $sth1->execute();
     $c1=$sth1->fetchAll();
     if($c1) {
-        $sth2=$conn->prepare("SELECT* FROM php where user_name=? and password=?");
+        $sth2=$conn->prepare("SELECT * FROM php where user_name=? and password=?");
         $sth2->bindValue(1,$username,PDO::PARAM_STR);
         $sth2->bindValue(2,$password,PDO::PARAM_STR);
         $sth2->execute();

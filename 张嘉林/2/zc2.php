@@ -15,7 +15,7 @@ $dbname = "php";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sth1=$conn->prepare("SELECT* FROM php where user_name= ?");
+    $sth1=$conn->prepare("SELECT * FROM php where user_name= ?");
     $sth1->bindValue(1,$username,PDO::PARAM_STR);
     $sth1->execute();
     $res1=$sth1->fetchAll();
@@ -23,7 +23,7 @@ try {
         echo"该用户名已存在"; 
     }
     else{
-        $sth = $conn->prepare("INSERT INTO php (user_name,password)values (?,?)");
+        $sth = $conn->prepare("INSERT INTO php(user_name,password) values(?,?)");
         $sth->bindValue(1, $username, PDO::PARAM_STR);
         $sth->bindValue(2, $password, PDO::PARAM_STR);
         $sth->execute();
